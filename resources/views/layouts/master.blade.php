@@ -3,14 +3,14 @@
     <!--begin::Page Vendor Stylesheets(used by this page)-->
     <!--end::Page Vendor Stylesheets-->
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
-    <link href="{{asset('assets/vendor/theme/js/plugins/global/plugins.bundle.css')}}" rel="stylesheet"
+    <link href="{{asset('vendor/theme/js/plugins/global/plugins.bundle.css')}}" rel="stylesheet"
           type="text/css"/>
-    <link href="{{asset('assets/vendor/theme/css/style.bundle.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('vendor/theme/css/style.bundle.css')}}" rel="stylesheet" type="text/css"/>
     <!--end::Global Stylesheets Bundle-->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <script src="{{asset('assets/vendor/theme/js/libs/axios.min.js')}}"></script>
-    <script src="{{asset('assets/vendor/theme/js/libs/lodash.min.js')}}"></script>
-    <script src="{{asset('assets/vendor/theme/js/libs/moment/moment.min.js')}}"></script>
+    <script src="{{asset('vendor/theme/js/libs/axios.min.js')}}"></script>
+    <script src="{{asset('vendor/theme/js/libs/lodash.min.js')}}"></script>
+    <script src="{{asset('vendor/theme/js/libs/moment/moment.min.js')}}"></script>
 @endsection
 @section('body')
     <!--begin::Body-->
@@ -44,8 +44,8 @@
     <!--end::Main-->
     <!--begin::Javascript-->
     <!--begin::Global Javascript Bundle(used by all pages)-->
-    <script src="{{asset('assets/vendor/theme/js/plugins/global/plugins.bundle.js')}}"></script>
-    <script src="{{asset('assets/vendor/theme/js/scripts.bundle.js')}}"></script>
+    <script src="{{asset('vendor/theme/js/plugins/global/plugins.bundle.js')}}"></script>
+    <script src="{{asset('vendor/theme/js/scripts.bundle.js')}}"></script>
 
     <!--end::Global Javascript Bundle-->
     <!--begin::Page Custom Javascript(used by this page)-->

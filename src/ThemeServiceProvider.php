@@ -21,7 +21,7 @@ class ThemeServiceProvider extends ServiceProvider
             ], 'nv-theme-views-layouts');
             // Publish assets
             $this->publishes([
-                __DIR__ . '/../resources/assets' => public_path('assets/vendor/theme'),
+                __DIR__ . '/../resources/assets' => public_path('vendor/theme'),
             ], 'nv-theme-assets');
         }
     }
