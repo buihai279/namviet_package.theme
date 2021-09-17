@@ -20,9 +20,9 @@
                     @foreach($menuBlock['items'] as $item)
                         @if(Helper::isShowItemMenu($item)===false) @continue @endif
                         @if(empty($item['child']) )
-                            @include('layouts.v8.aside.menu_item',['item'=>$item])
+                            @include('layouts::aside.menu_item',['item'=>$item])
                         @else
-                            @include('layouts.v8.aside.menu_item_has_child',['item'=>$item])
+                            @include('layouts::aside.menu_item_has_child',['item'=>$item])
                         @endif
                     @endforeach
                 @endforeach

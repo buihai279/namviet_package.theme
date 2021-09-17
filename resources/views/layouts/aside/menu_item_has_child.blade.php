@@ -12,9 +12,9 @@
             @foreach($item['child'] as $itemChild)
                 @if(Helper::isShowItemMenu($itemChild)===false) @continue @endif
                 @if(empty($itemChild['child']) )
-                    @include('layouts.v8.aside.menu_item',['item'=>$itemChild])
+                    @include('layouts::aside.menu_item',['item'=>$itemChild])
                 @else
-                    @include('layouts.v8.aside.menu_item_has_child',['item'=>$itemChild])
+                    @include('layouts::aside.menu_item_has_child',['item'=>$itemChild])
                 @endif
             @endforeach
         @endif
