@@ -18,7 +18,7 @@
     <meta property="og:title"
           content="VTVTRAVEL"/>
     <meta property="og:site_name" content="VTVTRAVEL"/>
-    @yield('head')
+    @stack('head')
 </head>
 @yield('body')
 </html>

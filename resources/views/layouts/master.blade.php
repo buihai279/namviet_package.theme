@@ -1,11 +1,12 @@
 @extends('layouts::base')
-@section('head')
+@push('head')
     <!--begin::Fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
     <!--end::Fonts-->
     <!--begin::Page Vendor Stylesheets(used by this page)-->
+    @stack('style_head')
     <!--end::Page Vendor Stylesheets-->
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
     <link href="{{asset('vendor/theme/js/plugins/global/plugins.bundle.css')}}" rel="stylesheet"
@@ -16,7 +17,7 @@
     <script src="{{asset('vendor/theme/js/libs/axios.min.js')}}"></script>
     <script src="{{asset('vendor/theme/js/libs/lodash.min.js')}}"></script>
     <script src="{{asset('vendor/theme/js/libs/moment/moment.min.js')}}"></script>
-@endsection
+@endpush
 @section('body')
     <!--begin::Body-->
     <body id="kt_body"
@@ -54,7 +55,7 @@
 
     <!--end::Global Javascript Bundle-->
     <!--begin::Page Custom Javascript(used by this page)-->
-    @yield('script_bottom')
+    @stack('script_bottom')
     <!--end::Page Custom Javascript-->
     <!--end::Javascript-->
     </body>
