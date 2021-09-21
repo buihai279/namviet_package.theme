@@ -19,7 +19,7 @@
 @section('content')
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <!--begin::Toolbar-->
-    @include('vendor.layouts.toolbar._base')
+    @include('layouts::toolbar._base')
     <!--end::Toolbar-->
         <!--begin::Post-->
         <div class="post d-flex flex-column-fluid" id="kt_post">

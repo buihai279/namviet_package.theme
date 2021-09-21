@@ -14,31 +14,8 @@
             <span class="h-20px border-gray-200 border-start mx-4"></span>
             <!--end::Separator-->
             <!--begin::Breadcrumb-->
-            <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
-                <!--begin::Item-->
-                <li class="breadcrumb-item text-muted">
-                    <a href="../../demo1/dist/index.html"
-                       class="text-muted text-hover-primary">Home</a>
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="breadcrumb-item">
-                    <span class="bullet bg-gray-200 w-5px h-2px"></span>
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="breadcrumb-item text-muted">Account</li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="breadcrumb-item">
-                    <span class="bullet bg-gray-200 w-5px h-2px"></span>
-                </li>
-                <!--end::Item-->
-                <!--begin::Item-->
-                <li class="breadcrumb-item text-dark">Settings</li>
-                <!--end::Item-->
-            </ul>
-            <!--end::Breadcrumb-->
+        {{ Breadcrumbs::render(Route::current()->getName()) }}
+        <!--end::Breadcrumb-->
         </div>
         <!--end::Page title-->
         <!--begin::Actions-->
