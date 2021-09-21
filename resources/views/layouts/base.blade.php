@@ -5,7 +5,8 @@
     <base href="/">
     <meta charset="utf-8"/>
     <title>
-        {{ ($breadcrumb = Breadcrumbs::current()) ? "$breadcrumb->title –" : '' }}
+
+        {{ Breadcrumbs::exists(Route::current()->getName())?(($breadcrumb = Breadcrumbs::current()) ? "$breadcrumb->title –" : '' ):'' }}
         {{config('app.name')}}
     </title>
     <meta name="description"

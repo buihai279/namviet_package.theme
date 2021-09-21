@@ -7,7 +7,7 @@
              class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
             <!--begin::Title-->
             <h1 class="d-flex align-items-center text-dark fw-bolder fs-3 my-1">
-                {{ ($breadcrumb = Breadcrumbs::current()) ? $breadcrumb->title : '' }}
+                {{ Breadcrumbs::exists(Route::current()->getName())?(($breadcrumb = Breadcrumbs::current()) ? "$breadcrumb->title –" : '' ):'' }}
             </h1>
             <!--end::Title-->
             <!--begin::Separator-->
