@@ -1,4 +1,4 @@
-@section('script_bottom')
+@push('script_bottom')
     @parent
     <link href="https://releases.transloadit.com/uppy/v1.22.0/uppy.min.css" rel="stylesheet" type="text/css"/>
     <script src="https://releases.transloadit.com/uppy/v1.18.0/uppy.min.js"></script>
@@ -12,7 +12,7 @@
             };
             let initUppy = function (nameInput, fileSize, numberOfFile, type = []) {
                 let targetSelector = '#' + nameInput;
-                if ( $(targetSelector).length === 0) {// if not exist dom return
+                if ($(targetSelector).length === 0) {// if not exist dom return
                     return;
                 }
                 let uppyDragVideo = Uppy.Core({
@@ -68,7 +68,7 @@
                     let imagePreview = "";
                     $(targetSelector + ' .uppy-thumbnails .uppy-thumbnail-container.init-upload').remove();//reset form after up file
                     $.each(file.successful, function (index, value) {
-                        uppyDragVideo.setFileMeta( value.id, { name: value.response.body.name })
+                        uppyDragVideo.setFileMeta(value.id, {name: value.response.body.name})
                         imagePreview = showThumb(nameInput, value.id, value.response.body, 'new-upload')
                         $(targetSelector + ' .uppy-thumbnails').append(imagePreview);
                     });
@@ -88,14 +88,15 @@
                     let thumbnail = "";
                     let title = fileObj.name + formatFileSize(fileObj.size)
                     if (/image/.test(fileObj.mime)) {
-                        thumbnail = '<div class=" w-100 h-auto uppy-thumbnail"><img class="asset-preview img-thumbnail " title="'+title+'" src="' + fileObj.url + '" href="' + fileObj.url + '"/></div>';
-                    }else if (/video/.test(fileObj.mime)) {
-                        thumbnail = '<div class=" w-100 h-auto uppy-thumbnail"><video width="800" height="800" controls class="asset-preview img-thumbnail mfp-iframe" title="'+title+'" src="' + fileObj.url + '" href="' + fileObj.url + '"></video></div>';
+                        thumbnail = '<div class=" w-100 h-auto uppy-thumbnail"><img class="asset-preview img-thumbnail " title="' + title + '" src="' + fileObj.url + '" href="' + fileObj.url + '"/></div>';
+                    } else if (/video/.test(fileObj.mime)) {
+                        thumbnail = '<div class=" w-100 h-auto uppy-thumbnail"><video width="800" height="800" controls class="asset-preview img-thumbnail mfp-iframe" title="' + title + '" src="' + fileObj.url + '" href="' + fileObj.url + '"></video></div>';
                     }
                     let input = '<input type="hidden" class="file-hidden " name="files[' + nameInput + '][]" value=\'' + JSON.stringify(fileObj) + ' \'>';
                     let btnDel = '<span data-id="' + id + '" class="bg-warning h-20px line-height-md position-absolute right-0 rounded-circle text-center top-0 uppy-remove-thumbnail w-20px"><i class="flaticon2-cancel-music"></i></span>'
                     return '<div data-action="hover" data-toggle="tooltip" data-original-title="Nhấn vào để xem file" class="uppy-thumbnail-container h-150px w-300px  ' + className + '" data-id="' + id + '" >' + thumbnail + input + btnDel + '</div>';
                 }
+
                 //format file size (Ex: 5,4 MB)
                 function formatFileSize(size) {
                     let sizeLabel = "bytes";
@@ -133,4 +134,4 @@
         }();
         KTUppy.init();
     </script>
-@endsection
+@endpush
