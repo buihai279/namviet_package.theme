@@ -1,5 +1,4 @@
 @push('script_bottom')
-    @parent
     <link href="https://releases.transloadit.com/uppy/v1.22.0/uppy.min.css" rel="stylesheet" type="text/css"/>
     <script src="https://releases.transloadit.com/uppy/v1.18.0/uppy.min.js"></script>
     <script src="https://releases.transloadit.com/uppy/locales/v1.16.9/vi_VN.min.js"></script>

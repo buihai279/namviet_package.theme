@@ -52,6 +52,8 @@
     <!--begin::Global Javascript Bundle(used by all pages)-->
     <script src="{{asset('vendor/theme/js/plugins/global/plugins.bundle.js')}}"></script>
     <script src="{{asset('vendor/theme/js/scripts.bundle.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
+    <style href="{{asset('assets/custom/css/magnific-popup.css')}}" rel="stylesheet"></style>
 
     <!--end::Global Javascript Bundle-->
     <!--begin::Page Custom Javascript(used by this page)-->

@@ -1,14 +1,4 @@
-/******/ (() => { // webpackBootstrap
-/******/ 	var __webpack_modules__ = ({
-
-/***/ "../src/js/components/blockui.js":
-/*!***************************************!*\
-  !*** ../src/js/components/blockui.js ***!
-  \***************************************/
-/***/ ((module) => {
-
 "use strict";
-
 
 // Class definition
 var KTBlockUI = function(element, options) {
@@ -182,20 +172,10 @@ KTBlockUI.getInstance = function(element) {
 }
 
 // Webpack support
-if ( true && typeof module.exports !== 'undefined') {
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = KTBlockUI;
 }
-
-/***/ }),
-
-/***/ "../src/js/components/cookie.js":
-/*!**************************************!*\
-  !*** ../src/js/components/cookie.js ***!
-  \**************************************/
-/***/ ((module) => {
-
 "use strict";
-
 // DOCS: https://javascript.info/cookie
 
 // Class definition
@@ -254,21 +234,11 @@ var KTCookie = function() {
 }();
 
 // Webpack support
-if ( true && typeof module.exports !== 'undefined') {
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = KTCookie;
 }
 
-
-/***/ }),
-
-/***/ "../src/js/components/dialer.js":
-/*!**************************************!*\
-  !*** ../src/js/components/dialer.js ***!
-  \**************************************/
-/***/ ((module) => {
-
 "use strict";
-
 
 // Class definition
 var KTDialer = function(element, options) {
@@ -518,20 +488,10 @@ if (document.readyState === 'loading') {
 }
 
 // Webpack support
-if ( true && typeof module.exports !== 'undefined') {
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = KTDialer;
 }
-
-/***/ }),
-
-/***/ "../src/js/components/drawer.js":
-/*!**************************************!*\
-  !*** ../src/js/components/drawer.js ***!
-  \**************************************/
-/***/ ((module) => {
-
 "use strict";
-
 
 // Class definition
 var KTDrawer = function(element, options) {
@@ -818,6 +778,46 @@ KTDrawer.getInstance = function(element) {
     }
 }
 
+// Hide all drawers and skip one if provided
+KTDrawer.hideAll = function(skip = null, selector = '[data-kt-drawer="true"]') {
+    var items = document.querySelectorAll(selector);
+
+    if (items && items.length > 0) {
+        for (var i = 0, len = items.length; i < len; i++) {
+            var item = items[i];
+            var drawer = KTDrawer.getInstance(item);
+
+            if (!drawer) {
+                continue;
+            }
+
+            if ( skip ) {
+                if ( item !== skip ) {
+                    drawer.hide();
+                }
+            } else {
+                drawer.hide();
+            }
+        }
+    }
+}
+
+// Update all drawers
+KTDrawer.updateAll = function(selector = '[data-kt-drawer="true"]') {
+    var items = document.querySelectorAll(selector);
+
+    if (items && items.length > 0) {
+        for (var i = 0, len = items.length; i < len; i++) {
+            var item = items[i];
+            var drawer = KTDrawer.getInstance(item);
+
+            if (drawer) {
+                drawer.update();;
+            }
+        }
+    }
+}
+
 // Create instances
 KTDrawer.createInstances = function(selector = '[data-kt-drawer="true"]') {
     var body = document.getElementsByTagName("BODY")[0];
@@ -895,20 +895,10 @@ if (document.readyState === 'loading') {
 }
 
 // Webpack support
-if ( true && typeof module.exports !== 'undefined') {
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = KTDrawer;
 }
-
-/***/ }),
-
-/***/ "../src/js/components/event-handler.js":
-/*!*********************************************!*\
-  !*** ../src/js/components/event-handler.js ***!
-  \*********************************************/
-/***/ ((module) => {
-
 "use strict";
-
 
 // Class definition
 var KTEventHandler = function() {
@@ -998,21 +988,11 @@ var KTEventHandler = function() {
 }();
 
 // Webpack support
-if ( true && typeof module.exports !== 'undefined') {
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = KTEventHandler;
 }
 
-
-/***/ }),
-
-/***/ "../src/js/components/feedback.js":
-/*!****************************************!*\
-  !*** ../src/js/components/feedback.js ***!
-  \****************************************/
-/***/ ((module) => {
-
 "use strict";
-
 
 // Class definition
 var KTFeedback = function(options) {
@@ -1173,21 +1153,11 @@ var KTFeedback = function(options) {
 };
 
 // Webpack support
-if ( true && typeof module.exports !== 'undefined') {
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = KTFeedback;
 }
 
-
-/***/ }),
-
-/***/ "../src/js/components/image-input.js":
-/*!*******************************************!*\
-  !*** ../src/js/components/image-input.js ***!
-  \*******************************************/
-/***/ ((module) => {
-
 "use strict";
-
 
 // Class definition
 var KTImageInput = function(element, options) {
@@ -1392,21 +1362,11 @@ if (document.readyState === 'loading') {
 }
 
 // Webpack Support
-if ( true && typeof module.exports !== 'undefined') {
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = KTImageInput;
 }
 
-
-/***/ }),
-
-/***/ "../src/js/components/menu.js":
-/*!************************************!*\
-  !*** ../src/js/components/menu.js ***!
-  \************************************/
-/***/ ((module) => {
-
 "use strict";
-
 
 // Class definition
 var KTMenu = function(element, options) {
@@ -1979,16 +1939,14 @@ var KTMenu = function(element, options) {
             placement = 'right';
         }
 
-        // Flip
-        var flipValue = _getItemOption(item, 'flip');
-        var flip = flipValue ? flipValue.split(",") : [];
-
         // Offset
         var offsetValue = _getItemOption(item, 'offset');
         var offset = offsetValue ? offsetValue.split(",") : [];
 
         // Strategy
         var strategy = _getItemOption(item, 'overflow') === true ? 'absolute' : 'fixed';
+
+        var altAxis = _getItemOption(item, 'flip') !== false ? true : false;
 
         var popperConfig = {
             placement: placement,
@@ -2001,12 +1959,12 @@ var KTMenu = function(element, options) {
             }, {
                 name: 'preventOverflow',
                 options: {
-                    rootBoundary: 'clippingParents'
+                    altAxis: altAxis
                 }
             }, {
                 name: 'flip', 
                 options: {
-                    fallbackPlacements: flip
+                    flipVariations: false
                 }
             }]
         };
@@ -2408,21 +2366,11 @@ if (document.readyState === 'loading') {
 }
 
 // Webpack support
-if ( true && typeof module.exports !== 'undefined') {
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = KTMenu;
 }
 
-
-/***/ }),
-
-/***/ "../src/js/components/password-meter.js":
-/*!**********************************************!*\
-  !*** ../src/js/components/password-meter.js ***!
-  \**********************************************/
-/***/ ((module) => {
-
 "use strict";
-
 
 // Class definition
 var KTPasswordMeter = function(element, options) {
@@ -2677,20 +2625,10 @@ if (document.readyState === 'loading') {
 }
 
 // Webpack support
-if ( true && typeof module.exports !== 'undefined') {
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = KTPasswordMeter;
 }
-
-/***/ }),
-
-/***/ "../src/js/components/scroll.js":
-/*!**************************************!*\
-  !*** ../src/js/components/scroll.js ***!
-  \**************************************/
-/***/ ((module) => {
-
 "use strict";
-
 
 // Class definition
 var KTScroll = function(element, options) {
@@ -3007,21 +2945,11 @@ if (document.readyState === 'loading') {
 }
 
 // Webpack Support
-if ( true && typeof module.exports !== 'undefined') {
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = KTScroll;
 }
 
-
-/***/ }),
-
-/***/ "../src/js/components/scrolltop.js":
-/*!*****************************************!*\
-  !*** ../src/js/components/scrolltop.js ***!
-  \*****************************************/
-/***/ ((module) => {
-
 "use strict";
-
 
 // Class definition
 var KTScrolltop = function(element, options) {
@@ -3192,21 +3120,11 @@ if (document.readyState === 'loading') {
 }
 
 // Webpack support
-if ( true && typeof module.exports !== 'undefined') {
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = KTScrolltop;
 }
 
-
-/***/ }),
-
-/***/ "../src/js/components/search.js":
-/*!**************************************!*\
-  !*** ../src/js/components/search.js ***!
-  \**************************************/
-/***/ ((module) => {
-
 "use strict";
-
 
 // Class definition
 var KTSearch = function(element, options) {
@@ -3642,21 +3560,11 @@ KTSearch.getInstance = function(element) {
 }
 
 // Webpack support
-if ( true && typeof module.exports !== 'undefined') {
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = KTSearch;
 }
 
-
-/***/ }),
-
-/***/ "../src/js/components/stepper.js":
-/*!***************************************!*\
-  !*** ../src/js/components/stepper.js ***!
-  \***************************************/
-/***/ ((module) => {
-
 "use strict";
-
 
 // Class definition
 var KTStepper = function(element, options) {
@@ -3987,21 +3895,11 @@ KTStepper.getInstance = function(element) {
 }
 
 // Webpack support
-if ( true && typeof module.exports !== 'undefined') {
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = KTStepper;
 }
 
-
-/***/ }),
-
-/***/ "../src/js/components/sticky.js":
-/*!**************************************!*\
-  !*** ../src/js/components/sticky.js ***!
-  \**************************************/
-/***/ ((module) => {
-
 "use strict";
-
 
 // Class definition
 var KTSticky = function(element, options) {
@@ -4024,7 +3922,6 @@ var KTSticky = function(element, options) {
         animationSpeed: '0.3s',
         animationClass: 'animation-slide-in-down'
     };
-
     ////////////////////////////
     // ** Private Methods  ** //
     ////////////////////////////
@@ -4045,6 +3942,7 @@ var KTSticky = function(element, options) {
         the.attributeName = 'data-kt-sticky-' + the.name;
         the.eventTriggerState = true;
         the.lastScrollTop = 0;
+        the.scrollHandler;
 
         // Set initialized
         the.element.setAttribute('data-kt-sticky', 'true');
@@ -4223,6 +4121,7 @@ var KTSticky = function(element, options) {
     }
 
     var _destroy = function() {
+        window.removeEventListener('scroll', _scroll);
         KTUtil.data(the.element).remove('sticky');
     }
 
@@ -4322,21 +4221,11 @@ if (document.readyState === 'loading') {
 }
 
 // Webpack support
-if ( true && typeof module.exports !== 'undefined') {
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = KTSticky;
 }
 
-
-/***/ }),
-
-/***/ "../src/js/components/swapper.js":
-/*!***************************************!*\
-  !*** ../src/js/components/swapper.js ***!
-  \***************************************/
-/***/ ((module) => {
-
 "use strict";
-
 
 // Class definition
 var KTSwapper = function(element, options) {
@@ -4511,21 +4400,11 @@ if (document.readyState === 'loading') {
 }
 
 // Webpack support
-if ( true && typeof module.exports !== 'undefined') {
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = KTSwapper;
 }
 
-
-/***/ }),
-
-/***/ "../src/js/components/toggle.js":
-/*!**************************************!*\
-  !*** ../src/js/components/toggle.js ***!
-  \**************************************/
-/***/ ((module) => {
-
 "use strict";
-
 
 // Class definition
 var KTToggle = function(element, options) {
@@ -4739,20 +4618,10 @@ if (document.readyState === 'loading') {
 }
 
 // Webpack support
-if ( true && typeof module.exports !== 'undefined') {
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = KTToggle;
 }
-
-/***/ }),
-
-/***/ "../src/js/components/util.js":
-/*!************************************!*\
-  !*** ../src/js/components/util.js ***!
-  \************************************/
-/***/ ((module) => {
-
 "use strict";
-
 
 /**
  * @class KTUtil  base utilize class that privides helper functions
@@ -6315,20 +6184,10 @@ var KTUtil = function() {
 }();
 
 // Webpack support
-if ( true && typeof module.exports !== 'undefined') {
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = KTUtil;
 }
-
-/***/ }),
-
-/***/ "../src/js/layout/app.js":
-/*!*******************************!*\
-  !*** ../src/js/layout/app.js ***!
-  \*******************************/
-/***/ ((module) => {
-
 "use strict";
-
 
 // Class definition
 var KTApp = function() {
@@ -6516,7 +6375,7 @@ var KTApp = function() {
                 var options = {};
 
                 var value = element.getAttribute('data-kt-countup-value');
-                value = parseFloat(value.replace(/,/,''));
+                value = parseFloat(value.replace(/,/g,""));
 
                 if (element.hasAttribute('data-kt-countup-start-val')) {
                     options.startVal = parseFloat(element.getAttribute('data-kt-countup-start-val'));
@@ -6753,20 +6612,10 @@ window.addEventListener("load", function() {
 });
 
 // Webpack support
-if ( true && typeof module.exports !== 'undefined') {
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
     module.exports = KTApp;
 }
-
-/***/ }),
-
-/***/ "../../../themes/metronic/html/demo1/src/js/layout/aside.js":
-/*!******************************************************************!*\
-  !*** ../../../themes/metronic/html/demo1/src/js/layout/aside.js ***!
-  \******************************************************************/
-/***/ (() => {
-
 "use strict";
-
 
 // Class definition
 var KTLayoutAside = function () {
@@ -6808,17 +6657,7 @@ var KTLayoutAside = function () {
 KTUtil.onDOMContentLoaded(function () {
     KTLayoutAside.init();
 });
-
-/***/ }),
-
-/***/ "../../../themes/metronic/html/demo1/src/js/layout/explore.js":
-/*!********************************************************************!*\
-  !*** ../../../themes/metronic/html/demo1/src/js/layout/explore.js ***!
-  \********************************************************************/
-/***/ (() => {
-
 "use strict";
-
 
 // Class definition
 var KTLayoutExplore = function() {
@@ -6844,17 +6683,7 @@ var KTLayoutExplore = function() {
 KTUtil.onDOMContentLoaded(function() {
     KTLayoutExplore.init();
 });
-
-/***/ }),
-
-/***/ "../../../themes/metronic/html/demo1/src/js/layout/search.js":
-/*!*******************************************************************!*\
-  !*** ../../../themes/metronic/html/demo1/src/js/layout/search.js ***!
-  \*******************************************************************/
-/***/ (() => {
-
 "use strict";
-
 
 // Class definition
 var KTLayoutSearch = function() {
@@ -6989,17 +6818,7 @@ var KTLayoutSearch = function() {
 KTUtil.onDOMContentLoaded(function() {
     KTLayoutSearch.init();
 });
-
-/***/ }),
-
-/***/ "../../../themes/metronic/html/demo1/src/js/layout/toolbar.js":
-/*!********************************************************************!*\
-  !*** ../../../themes/metronic/html/demo1/src/js/layout/toolbar.js ***!
-  \********************************************************************/
-/***/ (() => {
-
 "use strict";
-
 
 // Class definition
 var KTLayoutToolbar = function () {
@@ -7073,70 +6892,3 @@ var KTLayoutToolbar = function () {
 KTUtil.onDOMContentLoaded(function () {
     KTLayoutToolbar.init();
 });
-
-/***/ })
-
-/******/ 	});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
-/*!********************************************************************!*\
-  !*** ../../../themes/metronic/html/tools/webpack/scripts.demo1.js ***!
-  \********************************************************************/
-// Keenthemes' plugins
-window.KTUtil = __webpack_require__(/*! @/src/js/components/util.js */ "../src/js/components/util.js");
-window.KTBlockUI = __webpack_require__(/*! @/src/js/components/blockui.js */ "../src/js/components/blockui.js");
-window.KTCookie = __webpack_require__(/*! @/src/js/components/cookie.js */ "../src/js/components/cookie.js");
-window.KTDialer = __webpack_require__(/*! @/src/js/components/dialer.js */ "../src/js/components/dialer.js");
-window.KTDrawer = __webpack_require__(/*! @/src/js/components/drawer.js */ "../src/js/components/drawer.js");
-window.KTEventHandler = __webpack_require__(/*! @/src/js/components/event-handler.js */ "../src/js/components/event-handler.js");
-window.KTFeedback = __webpack_require__(/*! @/src/js/components/feedback.js */ "../src/js/components/feedback.js");
-window.KTImageInput = __webpack_require__(/*! @/src/js/components/image-input.js */ "../src/js/components/image-input.js");
-window.KTMenu = __webpack_require__(/*! @/src/js/components/menu.js */ "../src/js/components/menu.js");
-window.KTPasswordMeter = __webpack_require__(/*! @/src/js/components/password-meter.js */ "../src/js/components/password-meter.js");
-window.KTScroll = __webpack_require__(/*! @/src/js/components/scroll.js */ "../src/js/components/scroll.js");
-window.KTScrolltop = __webpack_require__(/*! @/src/js/components/scrolltop.js */ "../src/js/components/scrolltop.js");
-window.KTSearch = __webpack_require__(/*! @/src/js/components/search.js */ "../src/js/components/search.js");
-window.KTStepper = __webpack_require__(/*! @/src/js/components/stepper.js */ "../src/js/components/stepper.js");
-window.KTSticky = __webpack_require__(/*! @/src/js/components/sticky.js */ "../src/js/components/sticky.js");
-window.KTSwapper = __webpack_require__(/*! @/src/js/components/swapper.js */ "../src/js/components/swapper.js");
-window.KTToggle = __webpack_require__(/*! @/src/js/components/toggle.js */ "../src/js/components/toggle.js");
-
-// Layout base js
-window.KTApp = __webpack_require__(/*! @/src/js/layout/app.js */ "../src/js/layout/app.js");
-window.KTLayoutAside = __webpack_require__(/*! @/src/js/layout/aside.js */ "../../../themes/metronic/html/demo1/src/js/layout/aside.js");
-window.KTLayoutExplore = __webpack_require__(/*! @/src/js/layout/explore.js */ "../../../themes/metronic/html/demo1/src/js/layout/explore.js");
-window.KTLayoutSearch = __webpack_require__(/*! @/src/js/layout/search.js */ "../../../themes/metronic/html/demo1/src/js/layout/search.js");
-window.KTLayoutToolbar = __webpack_require__(/*! @/src/js/layout/toolbar.js */ "../../../themes/metronic/html/demo1/src/js/layout/toolbar.js");
-
-})();
-
-/******/ })()
-;
-//# sourceMappingURL=scripts.bundle.js.map

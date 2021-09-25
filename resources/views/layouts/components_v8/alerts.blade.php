@@ -1,7 +1,7 @@
 @php
     $errorMsg=[];
-    if (!empty(request()->session()->get('error'))){
-        $errorMsg[]=request()->session()->get('error');
+    if (!empty(session('error'))){
+        $errorMsg[]=session('error');
     }
     if(!empty($errors->all())){
         $errorMsg=array_merge($errorMsg,$errors->all());
