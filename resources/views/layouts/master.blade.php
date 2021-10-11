@@ -14,9 +14,12 @@
     <link href="{{asset('vendor/theme/css/style.bundle.css')}}" rel="stylesheet" type="text/css"/>
     <!--end::Global Stylesheets Bundle-->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <script src="{{asset('vendor/theme/js/libs/axios.min.js')}}"></script>
+    <!-- <script src="{{asset('vendor/theme/js/libs/axios.min.js')}}"></script> -->
     <script src="{{asset('vendor/theme/js/libs/lodash.min.js')}}"></script>
-    <script src="{{asset('vendor/theme/js/libs/moment/moment.min.js')}}"></script>
+    <!-- <script src="{{asset('vendor/theme/js/libs/moment/moment.min.js')}}"></script> -->
+    <!-- <script src="{{mix('js/app.js')}}" defer></script> -->
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}" />
+<script defer src="{{ mix('js/app.js') }}"></script>
 @endpush
 @section('body')
     <!--begin::Body-->
@@ -25,7 +28,7 @@
           style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
     <!--begin::Main-->
     <!--begin::Root-->
-    <div class="d-flex flex-column flex-root">
+    <div id="app" class="d-flex flex-column flex-root">
         <!--begin::Page-->
         <div class="page d-flex flex-row flex-column-fluid">
             <!--begin::Aside-->
@@ -52,8 +55,8 @@
     <!--begin::Global Javascript Bundle(used by all pages)-->
     <script src="{{asset('vendor/theme/js/plugins/global/plugins.bundle.js')}}"></script>
     <script src="{{asset('vendor/theme/js/scripts.bundle.js')}}"></script>
-    <script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
-    <style href="{{asset('assets/custom/css/magnific-popup.css')}}" rel="stylesheet"></style>
+    <script src="{{asset('vendor/theme/js/jquery.magnific-popup.min.js')}}"></script>
+    <style href="{{asset('vendor/theme/css/magnific-popup.css')}}" rel="stylesheet"></style>
 
     <!--end::Global Javascript Bundle-->
     <!--begin::Page Custom Javascript(used by this page)-->
