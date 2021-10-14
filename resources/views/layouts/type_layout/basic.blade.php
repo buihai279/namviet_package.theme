@@ -1,6 +1,6 @@
 @extends('layouts::master')
 @push('head')
-    <script src="{{asset('assets/custom/i18n.js')}}"></script>
+    <script src="{{asset('vendor/theme/js/i18n.js')}}"></script>
     <script>
         let dataFiles = {};//set global
     </script>

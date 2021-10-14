@@ -28,6 +28,7 @@
     <!--end::Main-->
     <!--begin::Javascript-->
     <!--begin::Global Javascript Bundle(used by all pages)-->
+    <script src="{{mix('js/app.js')}}"></script>
     <script src="{{asset('vendor/theme/js/plugins/global/plugins.bundle.js')}}"></script>
     <script src="{{asset('vendor/theme/js/scripts.bundle.js')}}"></script>
 
