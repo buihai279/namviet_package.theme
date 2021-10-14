@@ -8,7 +8,7 @@
         <div
             class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
             id="#kt_aside_menu" data-kt-menu="true">
-            @if(!empty(session()->get('userGroup')['permissions']) && !empty(config('menu')['left']))
+            @if(!empty(session()->get('userGroup')[config('namviet_account.permission_field')]) && !empty(config('menu')['left']))
                 @foreach(config('menu')['left'] as $key => $menuBlock)
                     @if(Helper::isShowBlock($menuBlock)===false) @continue @endif
                     <div class="menu-item">
