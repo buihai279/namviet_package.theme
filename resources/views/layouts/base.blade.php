@@ -6,8 +6,8 @@
     <meta charset="utf-8"/>
     <title>
 
-        {{ Breadcrumbs::exists(Route::current()->getName())?(($breadcrumb = Breadcrumbs::current()) ? "$breadcrumb->title –" : '' ):'' }}
-        {{config('app.name')}}
+        {{--        {{ Breadcrumbs::exists(Route::current()->getName())?(($breadcrumb = Breadcrumbs::current()) ? "$breadcrumb->title –" : '' ):'' }}--}}
+        {{--        {{config('app.name')}}--}}
     </title>
     <meta name="description"
           content="VTVTRAVEL"/>
