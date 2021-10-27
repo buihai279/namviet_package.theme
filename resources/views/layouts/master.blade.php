@@ -17,8 +17,8 @@
     <script src="{{asset('vendor/theme/js/libs/axios.min.js')}}"></script>
     <script src="{{asset('vendor/theme/js/libs/lodash.min.js')}}"></script>
     <script src="{{asset('vendor/theme/js/libs/moment/moment.min.js')}}"></script>
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}"/>
-    <script defer src="{{ mix('js/app.js',) }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}"/>
+    <script defer src="{{ asset('js/app.js',) }}"></script>
 @endpush
 @section('body')
     <!--begin::Body-->
