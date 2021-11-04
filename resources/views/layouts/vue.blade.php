@@ -11,6 +11,7 @@
           name="description"/>
     <meta content="VTVTRAVEL"
           name="keywords"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
     <meta content="vn_VN" property="og:locale"/>
     <meta content="article" property="og:type"/>
