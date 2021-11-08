@@ -20,7 +20,7 @@
 @endpush
 @section('body')
     <!--begin::Body-->
-    <body id="kt_body"
+    <body id="form-login"
           class="app-vue  header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed"
           style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
     @yield('content')

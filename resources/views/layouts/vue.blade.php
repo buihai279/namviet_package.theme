@@ -21,7 +21,7 @@
     <link href="{{asset('vendor/theme/css/style.bundle.css')}}" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/app.css"/>
     <script defer src="js/app.js"></script>
-    <script defer src="vendor/theme/js/scripts.bundle.js"></script>
+{{--    <script defer src="vendor/theme/js/scripts.bundle.js"></script>--}}
 </head>
 <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
 <!--begin::Root-->
@@ -32,6 +32,10 @@
     </div>
     <!--end::Page-->
 </div>
+<script src="{{asset('vendor/theme/js/plugins/global/plugins.bundle.js')}}"></script>
+<script src="{{asset('vendor/theme/js/scripts.bundle.js')}}"></script>
+<script src="{{asset('vendor/theme/js/jquery.magnific-popup.min.js')}}"></script>
+<style href="{{asset('vendor/theme/css/magnific-popup.css')}}" rel="stylesheet"></style>
 <!--end::Root-->
 </body>
 </html>
