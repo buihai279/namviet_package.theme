@@ -18,6 +18,8 @@
     <meta content="VTVTRAVEL"
           property="og:title"/>
     <meta content="VTVTRAVEL" property="og:site_name"/>
+    <link href="{{asset('vendor/theme/js/plugins/global/plugins.bundle.css')}}" rel="stylesheet"
+          type="text/css"/>
     <link href="{{asset('vendor/theme/css/style.bundle.css')}}" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/app.css"/>
     <script defer src="js/app.js"></script>
