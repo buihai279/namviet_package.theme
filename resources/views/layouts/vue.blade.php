@@ -5,7 +5,7 @@
     <base href="/">
     <meta charset="utf-8"/>
     <title>
-        VTP
+        {{ env('APP_NAME','VTP') }}
     </title>
     <meta content="VTVTRAVEL"
           name="description"/>
@@ -21,8 +21,8 @@
     <link href="{{asset('vendor/theme/js/plugins/global/plugins.bundle.css')}}" rel="stylesheet"
           type="text/css"/>
     <link href="{{asset('vendor/theme/css/style.bundle.css')}}" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="css/app.css"/>
-    <script defer src="js/app.js"></script>
+    <link rel="stylesheet" href="{{asset('css/app.css') }}"/>
+    <script defer src="{{ asset('js/app.js') }}"></script>
 {{--    <script defer src="vendor/theme/js/scripts.bundle.js"></script>--}}
 </head>
 <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
